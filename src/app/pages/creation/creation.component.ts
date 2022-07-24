@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-creation',
-  template: '<h1>Lol</h1>'
+  template: '<router-outlet></router-outlet>'
 })
 export class CreationComponent { }
