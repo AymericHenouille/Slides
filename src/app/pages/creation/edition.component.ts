@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
   selector: 'app-creation',
   template: '<router-outlet></router-outlet>'
 })
-export class CreationComponent { }
+export class EditionComponent { }

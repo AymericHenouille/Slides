@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreationComponent } from '../creation/creation.component';
 
-const ROUTES: Routes = [
-  { path: '', component: CreationComponent }
-];
+const ROUTES: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(ROUTES)],
