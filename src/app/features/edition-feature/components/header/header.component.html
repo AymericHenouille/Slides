@@ -1,0 +1,5 @@
+<mat-tab-group>
+  <mat-tab *ngFor="let header of headers" [label]="header.header">
+    <mat-icon *ngFor="let subHeader of header.subHeaders" (click)="subHeader.action()" >{{ subHeader.icon }}</mat-icon>
+  </mat-tab>
+</mat-tab-group>
