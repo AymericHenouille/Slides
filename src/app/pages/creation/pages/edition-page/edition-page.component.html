@@ -1,4 +1,6 @@
-<app-right-panel></app-right-panel>
-<app-center-panel></app-center-panel>
-<app-left-panel></app-left-panel>
-<app-bottom-panel></app-bottom-panel>
+<app-left-panel class="resizable" [appResizable]="['right']"></app-left-panel>
+<div class="center">
+  <app-center-panel></app-center-panel>
+  <app-bottom-panel class="resizable" [appResizable]="['top']"></app-bottom-panel>
+</div>
+<app-right-panel class="resizable" [appResizable]="['left']"></app-right-panel>

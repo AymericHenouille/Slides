@@ -1,0 +1,31 @@
+$border: solid 5px black;
+
+:host {
+  display: flex;
+  width: 100%;
+  &, & > * {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+app-right-panel {
+  border-left: $border;
+  width: 30%;
+}
+
+app-left-panel {
+  border-right: $border;
+  width: 30%;
+}
+
+app-bottom-panel {
+  border-top: $border;
+  height: 20%;
+}

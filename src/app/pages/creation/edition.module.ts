@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { EditionFeatureModule } from 'src/app/features/edition-feature/edition-feature.module';
+import { LayoutModule } from 'src/app/features/layout/layout.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BottomPanelComponent } from './components/bottom-panel/bottom-panel.component';
 import { CenterPanelComponent } from './components/center-panel/center-panel.component';
@@ -19,7 +21,9 @@ import { EditionPageComponent } from './pages/edition-page/edition-page.componen
   ],
   imports: [
     EditionRoutingModule,
-    SharedModule
+    SharedModule,
+    EditionFeatureModule,
+    LayoutModule
   ]
 })
 export class EditionModule { }
