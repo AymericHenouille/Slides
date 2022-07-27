@@ -1,5 +1,10 @@
 mat-icon {
-  margin-left: 1rem;
+  padding: 0 0.5rem;
   margin-top: 0.5rem;
   cursor: pointer;
+  transition: opacity 100ms ease-in-out;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
