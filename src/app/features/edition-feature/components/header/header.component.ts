@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Layer } from 'konva/lib/Layer';
 import { Header } from '../../models/header.model';
+import { newRectangle } from '../../redux/actions/shapes.actions';
 
 @Component({
   selector: 'app-header',
@@ -15,22 +18,22 @@ export class HeaderComponent {
         {
           icon: 'note_add',
           text: 'New',
-          action: this.fileNew
+          action: this.fileNew.bind(this)
         },
         {
           icon: 'folder_open',
           text: 'Open',
-          action: this.fileOpen
+          action: this.fileOpen.bind(this)
         },
         {
           icon: 'save',
           text: 'Save',
-          action: this.fileSave
+          action: this.fileSave.bind(this)
         },
         {
           icon: 'save_as',
           text: 'Save as',
-          action: this.fileSaveAs
+          action: this.fileSaveAs.bind(this)
         },
       ]
     },
@@ -40,17 +43,17 @@ export class HeaderComponent {
         {
           icon: 'content_copy',
           text: 'Copy',
-          action: this.editCopy
+          action: this.editCopy.bind(this)
         },
         {
           icon: 'content_cut',
           text: 'Cut',
-          action: this.editCut
+          action: this.editCut.bind(this)
         },
         {
           icon: 'content_paste',
           text: 'Paste',
-          action: this.editPaste
+          action: this.editPaste.bind(this)
         }
       ]
     },
@@ -60,17 +63,17 @@ export class HeaderComponent {
         {
           icon: 'open_with',
           text: 'Move',
-          action: this.toolsMove
+          action: this.toolsMove.bind(this)
         },
         {
           icon: 'edit',
           text: 'Pen',
-          action: this.toolsPen
+          action: this.toolsPen.bind(this)
         },
         {
           icon: 'format_color_fill',
           text: 'Bucket',
-          action: this.toolsBucket
+          action: this.toolsBucket.bind(this)
         }
       ]
     },
@@ -80,17 +83,17 @@ export class HeaderComponent {
         {
           icon: 'rectangle',
           text: 'Rectangle',
-          action: this.shapesRectangle
+          action: this.shapesRectangle.bind(this)
         },
         {
           icon: 'circle',
           text: 'Circle',
-          action: this.shapesCircle
+          action: this.shapesCircle.bind(this)
         },
         {
           icon: 'change_history',
           text: 'Triangle',
-          action: this.shapesTriangle
+          action: this.shapesTriangle.bind(this)
         }
       ]
     },
@@ -100,23 +103,25 @@ export class HeaderComponent {
         {
           icon: 'account_tree',
           text: 'Files Tree',
-          action: this.windowsTree
+          action: this.windowsTree.bind(this)
         },
         {
           icon: 'tune',
           text: 'Settings',
-          action: this.windowsSettings
+          action: this.windowsSettings.bind(this)
         },
         {
           icon: 'slideshow',
           text: 'Slideshow',
-          action: this.windowsSlideshow
+          action: this.windowsSlideshow.bind(this)
         },
       ]
     },
   ]
 
-  constructor() { }
+  constructor(
+    private readonly store: Store<{ layers: Layer[] }>
+  ) { }
 
   private fileNew(): void {
 
@@ -159,7 +164,18 @@ export class HeaderComponent {
   }
 
   private shapesRectangle(): void {
+    console.log('shapesRectangle');
 
+    this.store.dispatch(newRectangle({
+      config: {
+        x: 10,
+        y: 10,
+        width: 100,
+        height: 100,
+        fill: 'red',
+      },
+      layerIndex: 0
+    }));
   }
 
   private shapesCircle(): void {
