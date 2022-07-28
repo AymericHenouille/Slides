@@ -1,6 +1,18 @@
-<app-left-panel class="resizable" [appResizable]="['right']"></app-left-panel>
-<div class="center">
-  <app-center-panel></app-center-panel>
-  <app-bottom-panel class="resizable" [appResizable]="['top']"></app-bottom-panel>
-</div>
-<app-right-panel class="resizable" [appResizable]="['left']"></app-right-panel>
+<as-split direction="horizontal">
+  <as-split-area [size]="20">
+    <app-left-panel></app-left-panel>
+  </as-split-area>
+  <as-split-area [size]="60">
+    <as-split direction="vertical">
+      <as-split-area [size]="80">
+        <app-center-panel></app-center-panel>
+      </as-split-area>
+      <as-split-area [size]="20">
+        <app-bottom-panel></app-bottom-panel>
+      </as-split-area>
+    </as-split>
+  </as-split-area>
+  <as-split-area [size]="20">
+    <app-right-panel></app-right-panel>
+  </as-split-area>
+</as-split>
