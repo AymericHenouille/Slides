@@ -4,7 +4,10 @@ import { Component } from '@angular/core';
   selector: 'app-creation',
   template: `
     <app-header></app-header>
-    <router-outlet></router-outlet>
-  `
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  styleUrls: ['./edition.component.scss']
 })
 export class EditionComponent { }

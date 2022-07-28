@@ -1,0 +1,9 @@
+$background-edition-color: #C0C0C0;
+
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+#canvas { background-color: $background-edition-color; }

@@ -42,7 +42,7 @@ export class ResizableDirective implements OnInit {
         this.height = this.height + event.movementY;
         break;
       case 'left':
-        this.width = this.width - event.movementX;
+        this.width = this.width + event.movementX;
         break;
       case 'bottom':
         this.height = this.height - event.movementY;
