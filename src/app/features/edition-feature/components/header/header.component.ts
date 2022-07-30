@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Layer } from 'konva/lib/Layer';
 import { Header } from '../../models/header.model';
-import { newRectangle } from '../../redux/actions/shapes.actions';
+import { newCircle, newRectangle, newTriangle } from '../../redux/actions/shapes.actions';
 
 @Component({
   selector: 'app-header',
@@ -164,26 +164,45 @@ export class HeaderComponent {
   }
 
   private shapesRectangle(): void {
-    console.log('shapesRectangle');
-
     this.store.dispatch(newRectangle({
       config: {
-        x: 10,
-        y: 10,
+        x: 50,
+        y: 50,
         width: 100,
         height: 100,
         fill: 'red',
+        draggable: true
       },
-      layerIndex: 0
+      layerIndex: 1
     }));
   }
 
   private shapesCircle(): void {
-
+    this.store.dispatch(newCircle({
+      config: {
+        x: 100,
+        y: 100,
+        width: 100,
+        height: 100,
+        fill: 'blue',
+        draggable: true
+      },
+      layerIndex: 1
+    }));
   }
 
   private shapesTriangle(): void {
-
+    this.store.dispatch(newTriangle({
+      config: {
+        radius: 50,
+        sides: 3,
+        x: 100,
+        y: 100,
+        fill: 'green',
+        draggable: true
+      },
+      layerIndex: 1
+    }));
   }
 
   private windowsTree(): void {

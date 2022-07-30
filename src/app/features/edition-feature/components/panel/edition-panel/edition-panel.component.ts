@@ -36,11 +36,13 @@ export class EditionPanelComponent implements OnInit, OnDestroy {
     this.stage.draw();
 
     this._layers = this.layers$.subscribe(layers => {
-      console.log(layers);
       if (layers) {
         this.stage.clear();
+        this.stage.getLayers().forEach(layer => layer.destroy());
         this.stage.add(this.createBackground());
         layers.forEach(layer => this.stage.add(layer));
+        console.log(this.stage.getLayers());
+
         this.stage.draw();
       }
     });
