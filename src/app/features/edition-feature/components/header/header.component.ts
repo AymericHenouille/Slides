@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Layer } from 'konva/lib/Layer';
 import { Header } from '../../models/header.model';
+import { Mode } from '../../models/mode.model';
+import { modeFill, modePaint, modeSelect } from '../../redux/actions/mode.actions';
 import { newCircle, newRectangle, newTriangle } from '../../redux/actions/shapes.actions';
 
 @Component({
@@ -120,7 +122,7 @@ export class HeaderComponent {
   ]
 
   constructor(
-    private readonly store: Store<{ layers: Layer[] }>
+    private readonly store: Store<{ layers: Layer[], mode: Mode }>
   ) { }
 
   private fileNew(): void {
@@ -152,14 +154,16 @@ export class HeaderComponent {
   }
 
   private toolsMove(): void {
-
+    this.store.dispatch(modeSelect());
   }
 
   private toolsPen(): void {
+    this.store.dispatch(modePaint());
 
   }
 
   private toolsBucket(): void {
+    this.store.dispatch(modeFill());
 
   }
 

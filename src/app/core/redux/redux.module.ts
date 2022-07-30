@@ -2,12 +2,14 @@ import { ModuleWithProviders, NgModule, Type } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { modeReducer } from 'src/app/features/edition-feature/redux/reducers/mode.reducer';
 import { stageReducer } from 'src/app/features/edition-feature/redux/reducers/stage.reducer';
 import { environment } from 'src/environments/environment';
 
 const MODULES: (ModuleWithProviders<unknown> | Type<unknown>)[] = [
   StoreModule.forRoot({
-    layers: stageReducer
+    layers: stageReducer,
+    mode: modeReducer
   }, {
     runtimeChecks: {
       // strictStateImmutability and strictActionImmutability are enabled by default
